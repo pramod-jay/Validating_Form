@@ -4,6 +4,8 @@ function openForm(){
 
 function closeForm(){
     document.querySelector('.form-bg').classList.remove('bg-active');
+    document.getElementById('form_signup').reset();
+    document.getElementById('age_msg').textContent='';
 };
 
 
@@ -110,11 +112,11 @@ function Name_counter(){
     lName_counter.textContent=lname.value.length + "/" + name_limit;
 }
 
-function age(){
-    var userDateinput = document.getElementById("DOB").value;  
-    var birthDate = new Date(userDateinput);
-    var difference=Date.now() - birthDate.getTime(); 
-    var  ageDate = new Date(difference); 
-    var calculatedAge=   Math.abs(ageDate.getUTCFullYear() - 1970);
-    document.getElementById('age_msg').textContent="Age: "+calculatedAge;
+function age_calc(){
+    var dob = document.getElementById("DOB").value;  
+    var date = new Date(dob);
+    var dif=Date.now() - date.getTime(); 
+    var  age_date = new Date(dif); 
+    var correct_age=   Math.abs(age_date.getUTCFullYear() - 1970);
+    document.getElementById('age_msg').textContent="Age: "+correct_age;
 }

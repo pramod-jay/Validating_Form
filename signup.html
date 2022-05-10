@@ -24,7 +24,7 @@
 
         <div class="form-bg">
             <div class="form-container"> 
-                <form>
+                <form id="form_signup">
                     <div class="close" onclick="closeForm()">
                         +
                     </div> 
@@ -41,7 +41,7 @@
                     </div>
                     <div style="width:50%; float:left;">
                         <label class="req_lbl">Date of Birth</label><br>
-                        <input type="date" id="DOB" min="1900-01-01" max="2015-12-31" onfocus="this.max=new Date().toISOString().split('T')[0]" class="input_box" onchange="age()"/>
+                        <input type="date" id="DOB" min="1900-01-01" max="2015-12-31" onfocus="this.max=new Date().toISOString().split('T')[0]" class="input_box" onchange="age_calc()"/>
                         <div class="error_div" style="margin-bottom: 30px;"><span id="dob_error"></span><p id="age_msg" class="counter" style="color:#86b049"></p></div>
                         <label class="req_lbl">E-mail</label><br>
                         <input type="email" id="e_mail" name="e_mail" class="input_box"/>
