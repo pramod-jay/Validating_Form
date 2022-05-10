@@ -1,7 +1,7 @@
 <!DOCTYPE html>
     <head>
         <title>Signup</title>
-        <link rel="stylesheet" href="styles/style.css">
+        <link rel="stylesheet" href="style.css">
     </head>
     <body>
         <div class="canvas">
@@ -14,7 +14,7 @@
                         <img src="images/avatar.png" class="home_avatar">
                     </div>
                     <div style="width: 100%; justify-content: center; display: flex; margin-top: 50px;">
-                        <button type="submit" class="home_button">
+                        <button type="submit" class="home_button" id="home_btn" name="home_btn">
                             click me
                         </button>
                     </div>
@@ -24,13 +24,58 @@
 
         <div class="form-bg">
             <div class="form-container"> 
-                <form style="text-align: center;">
-                        <input type="text" id="fname" name="fname" placeholder="first name *">
-                        <input type="text" id="lname" name="lname" placeholder="last name *">
-                        <input type="date" placeholder="last name *">
-                        <input type="text" placeholder="last name *">
+                <form id="form">
+                    <div class="close">
+                        +
+                    </div>
+                    <hr style="margin-top: 50px; margin-bottom: 20px; height: 2px;">
+                    <div style="width:50%; float:left;">
+                        <label class="req_lbl">First Name</label><span id="f_name_error"></span><br>
+                        <input type="text" id="fname" name="fname" class="input_box" onkeyup="validateFname()"/>
+                    </div>
+                    <div style="width:50%; float:left">
+                        <label class="req_lbl">Last Name</label><span id="l_name_error">Last name is required</span><br>
+                        <input type="text" id="lname" name="lname" class="input_box"/>
+                    </div>
+                    <div style="width:50%; float:left;">
+                        <label class="req_lbl">Date of Birth</label><br>
+                        <input type="date" id="DOB" min="1900-01-01" max="2015-12-31" onfocus="this.max=new Date().toISOString().split('T')[0]" class="input_box"/>
+                        <label class="req_lbl">E-mail</label><br>
+                        <input type="email" id="e_mail" name="e_mail" class="input_box"/>
+                        <label class="req_lbl">User Name</label><br>
+                        <input type="text" id="u_name" name="u_name" class="input_box"/>
+                    </div>
+                    <div style="width:50%; float:left;">
+                        <label>Address</label><br>
+                        <input type="text" id="add_line1" name="add_line1" placeholder="address line 1" style="height: 32px;" class="input_box"/>
+                        <input type="text" id="add_line1" name="add_line2" placeholder="address line 2" style="height: 32px;" class="input_box"/>
+                        <input type="text" id="city" name="city" placeholder="city" style="height: 32px;" class="input_box"/>
+                    </div>
+                    <div style="width:50%; float:left;">
+                            <div style="width:50%; float:left;">
+                                <label class="req_lbl">Password</label><br>
+                                <input type="password" id="pwd" name="pwd" style="margin-right:10px; padding-right: 0px; width: 88%;" class="input_box"/>
+                            </div>
+                            <div  style="width:50%; float:left;">
+                                <label class="req_lbl">Confirm Password</label><br>
+                                <input type="password" id="con_pwd" name="con_pwd" style="margin-left:10px; padding-right: 0px; width: 88%;" class="input_box"/>
+                            </div>
+                    </div>
+                    <div style="width: 100%; float: left; margin-bottom: 10px;">
+                        <input type="checkbox" value="abc" style="margin-left: 10px;" id="agree" name="agree">
+                        <label style="font-size: 15px; margin-left: 0px;">I agreed to the terms and conditions.</label>
+                    </div>
+                    <hr>
+                    <div style="width:100%; float: left; margin-top: 5px; margin-left: 10px;">
+                        <div style="width: 20%;">
+                            <button type="submit" class="sub_btn" id="submit_btn" name="submit_btn" onclick="return validateFname()">Create Account</button>
+                            <button type="reset" class="clr_btn">Clear</button>
+                        </div>
+                    </div>
                 </form>
             </div>
         </div>
+        <script type="text/javascript" src="script.js"></script>
     </body>
 </html>
+
