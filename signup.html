@@ -60,13 +60,13 @@
                     <div style="width:50%; float:left;">
                             <div style="width:50%; float:left;">
                                 <label class="req_lbl">Password</label><br>
-                                <input type="password" id="pwd" name="pwd" style="margin-right:10px; padding-right: 0px; width: 88%;" class="input_box"/>
-                                <div class="error_div" style="margin-bottom: 15px;"><span id="pwd_error"></span></div>
+                                <input type="password" id="pwd" name="pwd" style="margin-right:10px; padding-right: 0px; width: 88%;" class="input_box" onkeyup="validatePWD()" maxlength="15"/>
+                                <div class="error_div" style="margin-bottom: 15px;"><span id="pwd_error"></span><p id="pwd_msg" class="counter"></p></div>
                             </div>
                             <div  style="width:50%; float:left;">
                                 <label class="req_lbl">Confirm Password</label><br>
-                                <input type="password" id="con_pwd" name="con_pwd" style="margin-left:10px; padding-right: 0px; width: 88%;" class="input_box"/>
-                                <div class="error_div" style="margin-bottom: 15px;"><span id="con_pwd_error"></span></div>
+                                <input type="password" id="con_pwd" name="con_pwd" style="margin-left:10px; padding-right: 0px; width: 88%;" class="input_box" onkeyup="validatePWD2()" maxlength="15"/>
+                                <div class="error_div" style="margin-bottom: 15px;"><span id="con_pwd_error"></span><p id="con_pwd_msg" class="counter"></p></div>
                             </div>
                     </div>
                     <div style="width: 100%; float: left; margin-bottom: 10px;">
@@ -75,9 +75,12 @@
                     </div>
                     <hr>
                     <div style="width:100%; float: left; margin-top: 5px; margin-left: 10px;">
-                        <div>
+                        <div style="float: left;">
                             <button type="button" class="sub_btn" id="submit_btn" name="submit_btn" onclick="validateForm()">Create Account</button>
                             <button type="reset" class="clr_btn">Clear</button>
+                        </div>
+                        <div class="main_msg">
+                            <p class="msg_para"></p>
                         </div>
                     </div>
                 </form>
