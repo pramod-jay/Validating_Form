@@ -97,7 +97,6 @@ function validateForm(){
     }else{
         success('con_pwd');
     }
-
 }
 
 //User name character counter and validation
@@ -106,14 +105,14 @@ var uName_limit=10;
 uName_counter.textContent=0 + "/" + uName_limit;
 
 function validateUname(){
-    var name=document.getElementById('u_name');
+    var name=document.getElementById('u_name').value;
 
-    uName_counter.textContent=name.value.length + "/" + uName_limit;
+    uName_counter.textContent=name.length + "/" + uName_limit;
     
-    if(!(name.value.match(/[a-z]/))){
+    if(name.match(/[^a-z]/)){
         document.getElementById('uName_error').innerHTML='User name must contains simple lettrs';
         span_error('uName_error');
-    }else if(name.value.match(/[ ]/)){
+    }else if(name.match(/[ ]/)){
         document.getElementById('uName_error').innerHTML='Cant put space';
         span_error('uName_error');
     }else{
@@ -158,7 +157,7 @@ function validatePWD(){
         pwd_counter1.textContent=pwd1.length + "/" + pwd_limit;
     }
 
-    if(!((pwd1.match(/[a-z]/)) || (pwd1.match(/[A-Z]/)))){
+    if(!((pwd1.match(/[^a-z]/)) || (pwd1.match(/[^A-Z]/)))){
         document.getElementById('pwd_error').innerHTML='Password should contain letters';
         span_error('pwd_error');
     }else if(!(pwd1.match(/[0-9]/))){
@@ -196,5 +195,21 @@ function validatePWD2(){
     }else{
         document.getElementById('con_pwd_error').innerHTML='Minimum length 6';
         span_error('con_pwd_error');
+    }
+}
+
+
+
+//Submit buttob enabled
+document.querySelector('.sub_btn').classList.add('btn_disbled');
+function agree_check(){
+    check_box=document.getElementById('agree');
+    btn=document.getElementById('submit_btn');
+    document.querySelector('.sub_btn').classList.remove('btn_disbled');
+    if(check_box.checked){
+        btn.removeAttribute('disabled');
+    }else{
+        document.querySelector('.sub_btn').classList.add('btn_disbled');
+        btn.disabled='true';
     }
 }

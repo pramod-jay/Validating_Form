@@ -70,13 +70,13 @@
                             </div>
                     </div>
                     <div style="width: 100%; float: left; margin-bottom: 10px;">
-                        <input type="checkbox" value="abc" style="margin-left: 10px;" id="agree" name="agree">
+                        <input type="checkbox" value="abc" style="margin-left: 10px;" id="agree" name="agree" onclick="agree_check()">
                         <label style="font-size: 15px; margin-left: 0px;">I agreed to the terms and conditions.</label>
                     </div>
                     <hr>
                     <div style="width:100%; float: left; margin-top: 5px; margin-left: 10px;">
                         <div style="float: left;">
-                            <button type="button" class="sub_btn" id="submit_btn" name="submit_btn" onclick="validateForm()">Create Account</button>
+                            <button type="button" class="sub_btn" id="submit_btn" disabled="true" name="submit_btn" onclick="validateForm()">Create Account</button>
                             <button type="reset" class="clr_btn">Clear</button>
                         </div>
                         <div class="main_msg">

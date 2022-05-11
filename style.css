@@ -176,13 +176,12 @@ label{
     color: #ffffff;
     font-weight: bold;
     float: left;
+    cursor: pointer;
 }
 
-.sub_btn:hover{
-    background-color: #ffffff;
-    border: 2px solid #86b049;
-    color: #86b049;
-    cursor: pointer;
+.btn_disbled{
+    background-color: #9e9e9e;
+    cursor: default;
 }
 
 .clr_btn{
@@ -196,12 +195,6 @@ label{
     color: #ffffff;
     font-weight: bold;
     float: left;
-}
-
-.clr_btn:hover{
-    background-color: #ffffff;
-    border: 2px solid #e64b50;
-    color: #e64b50;
     cursor: pointer;
 }
 
