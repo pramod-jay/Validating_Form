@@ -30,6 +30,11 @@ function span_error(id){
     document.getElementById(id).classList.remove('span_success');
 }
 
+//Span remove
+function span_remove(id){
+    document.getElementById(id).classList.add('span_visible');
+}
+
 //Form validation function
 function validateForm(){
     const format=/^[^ ]+@[^ ]+\.[a-z]{2,3}$/
@@ -43,59 +48,51 @@ function validateForm(){
     if(fName == ""){
         document.getElementById('f_name_error').innerHTML='First name is required';
         error('fname');
-    }else{
-        success('fname');
-    }
-  
-    if(lName == ""){
+    }else if(lName == ""){
         document.getElementById('l_name_error').innerHTML='Last name is required';
         error('lname');
-    }else{
-        success('lname');
-    }
-   
-    if(dob == ""){
+    }else if(dob == ""){
         document.getElementById('dob_error').innerHTML='Date of birth is required';
         error('DOB');
-    }else{
-        success('DOB');
-    }
-    if(eMail == ""){
+    }else if(eMail == ""){
         document.getElementById('eMail_error').innerHTML='Email is required';
         error('e_mail');
     }else if(!(eMail.match(format))){
         document.getElementById('eMail_error').innerHTML='Enter valid Email';
         error('e_mail');
-    }else{
-        success('e_mail');
-    }
-    if(uName == ""){
+    }else if(uName == ""){
         document.getElementById('uName_error').innerHTML='User name is required';
         error('u_name');
-    }else{
-        success('u_name');
-    }
-    if(pwd == ""){
+    }else if(pwd == ""){
         document.getElementById('pwd_error').innerHTML='Password is required';
         error('pwd');
-    }else{
-        success('pwd');
-    }
-    if(con_pwd == ""){
+    }else if(con_pwd == ""){
         document.getElementById('con_pwd_error').innerHTML='Password confirmation is required';
         error('con_pwd');
-    }else{
-        success('con_pwd');
-    }
-
-    if(!(pwd == con_pwd)){
+    }else if(!(pwd == con_pwd)){
         document.getElementById('pwd_error').innerHTML='Password missmatched';
         error('pwd');
         error('con_pwd');
         span_error('pwd_error');
         document.getElementById('con_pwd_error').innerHTML='';
     }else{
+        success('fname');
+        success('lname');
+        success('DOB');
+        success('e_mail');
+        success('u_name');
+        success('pwd');
         success('con_pwd');
+        span_remove('f_name_error');
+        span_remove('l_name_error');
+        span_remove('dob_error');
+        span_remove('eMail_error');
+        span_remove('uName_error');
+        span_remove('pwd_error');
+        span_remove('con_pwd_error');
+        document.querySelector('.main_msg').classList.add('main_msg_success');
+        document.getElementById('para').innerHTML='Account succefully created!!!';
+        
     }
 }
 
@@ -109,15 +106,18 @@ function validateUname(){
 
     uName_counter.textContent=name.length + "/" + uName_limit;
     
-    if(name.match(/[^a-z]/)){
+    if(name.match(/[ \t\n\r]/)){
+        document.getElementById('uName_error').innerHTML="Can't put space";
+        span_error('uName_error');
+        error('u_name');
+    }else if(name.match(/[^a-z]/)){
         document.getElementById('uName_error').innerHTML='User name must contains simple lettrs';
         span_error('uName_error');
-    }else if(name.match(/[ ]/)){
-        document.getElementById('uName_error').innerHTML='Cant put space';
-        span_error('uName_error');
+        error('u_name');
     }else{
         document.getElementById('uName_error').innerHTML='All are good';
         span_success('uName_error');
+        success('u_name');
     }
 }
 
@@ -200,7 +200,7 @@ function validatePWD2(){
 
 
 
-//Submit buttob enabled
+//Submit button enabled
 document.querySelector('.sub_btn').classList.add('btn_disbled');
 function agree_check(){
     check_box=document.getElementById('agree');

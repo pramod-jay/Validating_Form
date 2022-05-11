@@ -31,23 +31,23 @@
                     <hr style="margin-top: 50px; margin-bottom: 20px; height: 2px;">
                     <div style="width:50%; float:left;">
                         <label class="req_lbl">First Name</label><br>
-                        <input type="text" id="fname" name="fname" class="input_box" onkeyup="Name_counter()" maxlength="30"/>
+                        <input type="text" id="fname" name="fname" class="input_box" onkeyup="Name_counter()" maxlength="30" required/>
                         <div class="error_div"><span id="f_name_error"></span><p id="fName_counter" class="counter"></p></div>
                     </div>
                     <div style="width:50%; float:left;">
                         <label class="req_lbl">Last Name</label><br>
-                        <input type="text" id="lname" name="lname" class="input_box" onkeyup="Name_counter()" maxlength="30"/>
+                        <input type="text" id="lname" name="lname" class="input_box" onkeyup="Name_counter()" maxlength="30" required/>
                         <div class="error_div"><span id="l_name_error"></span><p id="lName_counter" class="counter"></p></div>
                     </div>
                     <div style="width:50%; float:left;">
                         <label class="req_lbl">Date of Birth</label><br>
-                        <input type="date" id="DOB" min="1900-01-01" max="2015-12-31" onfocus="this.max=new Date().toISOString().split('T')[0]" class="input_box" onchange="age_calc()"/>
+                        <input type="date" id="DOB" min="1900-01-01" max="2015-12-31" onfocus="this.max=new Date().toISOString().split('T')[0]" class="input_box" onchange="age_calc()" required/>
                         <div class="error_div" style="margin-bottom: 30px;"><span id="dob_error"></span><p id="age_msg" class="counter" style="color:#86b049"></p></div>
                         <label class="req_lbl">E-mail</label><br>
-                        <input type="email" id="e_mail" name="e_mail" class="input_box"/>
+                        <input type="email" id="e_mail" name="e_mail" class="input_box" required/>
                         <div class="error_div" style="margin-bottom: 30px;"><span id="eMail_error"></span></div>
                         <label class="req_lbl">User Name</label><br>
-                        <input type="text" id="u_name" name="u_name" class="input_box" onkeyup="validateUname()" maxlength="10"/>
+                        <input type="text" id="u_name" name="u_name" class="input_box" onkeyup="validateUname()" maxlength="10" required/>
                         <div class="error_div" style="margin-bottom: 30px;"><span id="uName_error"></span><p id="uName_counter" class="counter"></p></div>
                     </div>
                     <div style="width:50%; float:left;">
@@ -60,12 +60,12 @@
                     <div style="width:50%; float:left;">
                             <div style="width:50%; float:left;">
                                 <label class="req_lbl">Password</label><br>
-                                <input type="password" id="pwd" name="pwd" style="margin-right:10px; padding-right: 0px; width: 88%;" class="input_box" onkeyup="validatePWD()" maxlength="15"/>
+                                <input type="password" id="pwd" name="pwd" style="margin-right:10px; padding-right: 0px; width: 88%;" class="input_box" onkeyup="validatePWD()" maxlength="15" required/>
                                 <div class="error_div" style="margin-bottom: 15px;"><span id="pwd_error"></span><p id="pwd_msg" class="counter"></p></div>
                             </div>
                             <div  style="width:50%; float:left;">
                                 <label class="req_lbl">Confirm Password</label><br>
-                                <input type="password" id="con_pwd" name="con_pwd" style="margin-left:10px; padding-right: 0px; width: 88%;" class="input_box" onkeyup="validatePWD2()" maxlength="15"/>
+                                <input type="password" id="con_pwd" name="con_pwd" style="margin-left:10px; padding-right: 0px; width: 88%;" class="input_box" onkeyup="validatePWD2()" maxlength="15" required/>
                                 <div class="error_div" style="margin-bottom: 15px;"><span id="con_pwd_error"></span><p id="con_pwd_msg" class="counter"></p></div>
                             </div>
                     </div>
@@ -80,7 +80,7 @@
                             <button type="reset" class="clr_btn">Clear</button>
                         </div>
                         <div class="main_msg">
-                            <p class="msg_para"></p>
+                            <p class="msg_para" id="para"></p>
                         </div>
                     </div>
                 </form>
