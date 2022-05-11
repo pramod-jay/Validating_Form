@@ -6,11 +6,10 @@ function openForm(){
 //Form modal close and reset
 function closeForm(){
     document.querySelector('.form-bg').classList.remove('bg-active');
-    document.getElementById('form_signup').reset();
     document.getElementById('age_msg').textContent='';
 }
 
-//Input field border gree
+//Input field border green
 function success(id){
     document.getElementById(id).classList.add('input_succes');
 }
@@ -35,6 +34,12 @@ function span_remove(id){
     document.getElementById(id).classList.add('span_visible');
 }
 
+//message error
+function error_msg(){
+    document.querySelector('.main_msg').classList.add('main_msg_error');
+    document.getElementById('para').innerHTML='Oopps something went wrong!!!';
+}
+
 //Form validation function
 function validateForm(){
     const format=/^[^ ]+@[^ ]+\.[a-z]{2,3}$/
@@ -45,36 +50,48 @@ function validateForm(){
     var uName=document.getElementById('u_name').value;
     var pwd=document.getElementById('pwd').value
     var con_pwd=document.getElementById('con_pwd').value
+    var add_line1=document.getElementById('add_line1').value
+    var add_line2=document.getElementById('add_line2').value
+    var city=document.getElementById('city').value
     if(fName == ""){
         document.getElementById('f_name_error').innerHTML='First name is required';
         error('fname');
+        error_msg();
     }else if(lName == ""){
         document.getElementById('l_name_error').innerHTML='Last name is required';
         error('lname');
+        error_msg();
     }else if(dob == ""){
         document.getElementById('dob_error').innerHTML='Date of birth is required';
         error('DOB');
+        error_msg();
     }else if(eMail == ""){
         document.getElementById('eMail_error').innerHTML='Email is required';
         error('e_mail');
+        error_msg();
     }else if(!(eMail.match(format))){
         document.getElementById('eMail_error').innerHTML='Enter valid Email';
         error('e_mail');
+        error_msg();
     }else if(uName == ""){
         document.getElementById('uName_error').innerHTML='User name is required';
         error('u_name');
+        error_msg();
     }else if(pwd == ""){
         document.getElementById('pwd_error').innerHTML='Password is required';
         error('pwd');
+        error_msg();
     }else if(con_pwd == ""){
         document.getElementById('con_pwd_error').innerHTML='Password confirmation is required';
         error('con_pwd');
+        error_msg();
     }else if(!(pwd == con_pwd)){
         document.getElementById('pwd_error').innerHTML='Password missmatched';
         error('pwd');
         error('con_pwd');
         span_error('pwd_error');
         document.getElementById('con_pwd_error').innerHTML='';
+        error_msg();
     }else{
         success('fname');
         success('lname');
@@ -91,9 +108,20 @@ function validateForm(){
         span_remove('pwd_error');
         span_remove('con_pwd_error');
         document.querySelector('.main_msg').classList.add('main_msg_success');
-        document.getElementById('para').innerHTML='Account succefully created!!!';
-        
+        document.getElementById('para').innerHTML='Account created succefully !!!';
     }
+    if(add_line1 != ""){
+        document.getElementById('add_line1').classList.add('input_succes_add');
+    }
+
+    if(add_line2 != ""){
+        document.getElementById('add_line2').classList.add('input_succes_add');
+    }
+
+    if(city != ""){
+        document.getElementById('city').classList.add('input_succes_add');
+    }
+    
 }
 
 //User name character counter and validation
