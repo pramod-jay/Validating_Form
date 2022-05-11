@@ -1,14 +1,19 @@
 //Open form modal
 function openForm(){
     document.querySelector('.form-bg').classList.add('bg-active');
-};
+}
 
 //Form modal close and reset
 function closeForm(){
     document.querySelector('.form-bg').classList.remove('bg-active');
     document.getElementById('form_signup').reset();
     document.getElementById('age_msg').textContent='';
-};
+}
+
+//Input field border gree
+function success(id){
+    document.getElementById(id).classList.add('input_succes');
+}
 
 //Input field border red
 function error(id){
@@ -39,21 +44,21 @@ function validateForm(){
         document.getElementById('f_name_error').innerHTML='First name is required';
         error('fname');
     }else{
-
+        success('fname');
     }
   
     if(lName == ""){
         document.getElementById('l_name_error').innerHTML='Last name is required';
         error('lname');
     }else{
-
+        success('lname');
     }
    
     if(dob == ""){
         document.getElementById('dob_error').innerHTML='Date of birth is required';
         error('DOB');
     }else{
-
+        success('DOB');
     }
     if(eMail == ""){
         document.getElementById('eMail_error').innerHTML='Email is required';
@@ -62,23 +67,35 @@ function validateForm(){
         document.getElementById('eMail_error').innerHTML='Enter valid Email';
         error('e_mail');
     }else{
-
+        success('e_mail');
     }
     if(uName == ""){
         document.getElementById('uName_error').innerHTML='User name is required';
         error('u_name');
     }else{
-
+        success('u_name');
     }
     if(pwd == ""){
         document.getElementById('pwd_error').innerHTML='Password is required';
         error('pwd');
     }else{
-
+        success('pwd');
     }
     if(con_pwd == ""){
         document.getElementById('con_pwd_error').innerHTML='Password confirmation is required';
         error('con_pwd');
+    }else{
+        success('con_pwd');
+    }
+
+    if(!(pwd == con_pwd)){
+        document.getElementById('pwd_error').innerHTML='Password missmatched';
+        error('pwd');
+        error('con_pwd');
+        span_error('pwd_error');
+        document.getElementById('con_pwd_error').innerHTML='';
+    }else{
+        success('con_pwd');
     }
 
 }

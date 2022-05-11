@@ -146,6 +146,12 @@ input:focus{
     height: 48px;
 }
 
+.input_succes{
+    border: 1px solid #86b049;
+    width: 94%;
+    height: 48px;
+}
+
 label{
     margin-left: 10px;
     font-size: 17px;
